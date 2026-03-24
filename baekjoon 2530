@@ -1,0 +1,12 @@
+A, B, C = map(int, input().split())
+D = int(input())
+
+now = A * 3600 + B * 60 + C 
+total = now + D
+
+hour = (total // 3600) % 24
+rest = total % 3600
+minute = rest // 60
+second = rest % 60
+
+print(hour, minute, second)
