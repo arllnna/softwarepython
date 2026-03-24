@@ -1,0 +1,9 @@
+a=int(input())
+b=int(input())
+one = b % 10
+ten = (b // 10) % 10
+hundred = b // 100
+print(a*one)
+print(a*ten)
+print(a*hundred)
+print(a*b)
