@@ -1,0 +1,12 @@
+current = 0
+max_people = 0
+
+for _ in range(4):
+    out, inp = map(int, input().split())
+    
+    current -= out
+    current += inp
+    
+    max_people = max(max_people, current)
+
+print(max_people)
