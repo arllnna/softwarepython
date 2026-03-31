@@ -1,0 +1,23 @@
+word = input()
+total = 0
+
+for r in word:
+    if 'a' <= r <= 'z':
+        value = ord(r) - ord("a") + 1
+    elif 'A' <= r <= 'Z':
+        value = ord(r) - ord("A") + 27
+    total += value
+
+if total == 1:
+    print("It is a prime word.")
+else:
+    is_prime = True
+    for i in range(2, total):
+        if total % i == 0:
+            is_prime = False
+            break
+
+    if is_prime:
+        print("It is a prime word.")
+    else:
+        print("It is not a prime word.")
