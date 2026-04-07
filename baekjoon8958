@@ -1,0 +1,16 @@
+t = int(input())
+
+for _ in range(t):
+    s = input()
+    
+    count = 0
+    score = 0
+    
+    for ch in s:
+        if ch == 'O':
+            count += 1
+            score += count
+        else:
+            count = 0
+    
+    print(score)
