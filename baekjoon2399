@@ -1,0 +1,11 @@
+n = int(input())
+x = sorted(map(int, input().split()))
+
+ans = 0
+prefix_sum = 0
+
+for i in range(n):
+    ans += x[i] * i - prefix_sum
+    prefix_sum += x[i]
+
+print(ans * 2)
