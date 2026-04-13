@@ -1,0 +1,22 @@
+import sys
+input = sys.stdin.readline
+
+k, l = map(int, input().split())
+
+arr = [input().strip() for _ in range(l)]
+
+seen = set()
+result = []
+
+# идём с конца
+for student in reversed(arr):
+    if student not in seen:
+        seen.add(student)
+        result.append(student)
+
+# возвращаем правильный порядок
+result.reverse()
+
+# выводим только первые k
+for student in result[:k]:
+    print(student)
