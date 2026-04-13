@@ -1,0 +1,21 @@
+n = int(input())
+cards = list(map(int, input().split()))
+
+m = int(input())
+query = list(map(int, input().split()))
+
+count = {}
+
+# считаем количество карт
+for num in cards:
+    if num in count:
+        count[num] += 1
+    else:
+        count[num] = 1
+
+# отвечаем на запросы
+for q in query:
+    if q in count:
+        print(count[q], end=' ')
+    else:
+        print(0, end=' ')
