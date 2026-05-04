@@ -1,0 +1,22 @@
+import random
+
+def create_matrix(n):
+    matrix = []
+    for i in range(n):
+        row = []
+        for j in range(n):
+            row.append(random.randint(1, n*n*10 - 1))
+        matrix.append(row)
+    return matrix
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(*row)
+
+# --- ГЛАВНАЯ ЧАСТЬ ---
+n = int(input())
+
+A = create_matrix(n)
+
+print("Matrix:")
+print_matrix(A)
