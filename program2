@@ -1,0 +1,25 @@
+import random
+
+def create_matrix(n):
+    return [[random.randint(1, n*n*10 - 1) for _ in range(n)] for _ in range(n)]
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(*row)
+
+def transpose_matrix(A):
+    n = len(A)
+    return [[A[j][i] for j in range(n)] for i in range(n)]
+
+#main
+n = int(input("Введите N (1-5): "))
+
+A = create_matrix(n)
+
+print("Matrix A:")
+print_matrix(A)
+
+T = transpose_matrix(A)
+
+print("Transpose:")
+print_matrix(T)
