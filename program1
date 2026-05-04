@@ -1,0 +1,45 @@
+import random
+
+def create_matrix(n):
+    return [[random.randint(1, n*n*10 - 1) for _ in range(n)] for _ in range(n)]
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(*row)
+
+def add_matrix(A, B):
+    n = len(A)
+    return [[A[i][j] + B[i][j] for j in range(n)] for i in range(n)]
+
+def multiply_matrix(A, B):
+    n = len(A)
+    result = [[0]*n for _ in range(n)]
+    
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                result[i][j] += A[i][k] * B[k][j]
+    
+    return result
+
+#main
+n = int(input("Введите N (1-5): "))
+
+A = create_matrix(n)
+B = create_matrix(n)
+C = create_matrix(n)
+
+print("Matrix A:")
+print_matrix(A)
+
+print("Matrix B:")
+print_matrix(B)
+
+print("Matrix C:")
+print_matrix(C)
+
+AB = multiply_matrix(A, B)
+result = add_matrix(AB, C)
+
+print("Result (A * B + C):")
+print_matrix(result)
