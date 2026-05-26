@@ -1,0 +1,61 @@
+import os
+
+dir1 = input("Первая папка: ")
+dir2 = input("Вторая папка: ")
+
+files1 = []
+files2 = []
+
+# получаем файлы первой папки
+with os.scandir(dir1) as entries:
+    for entry in entries:
+        if entry.is_file():
+            files1.append(entry.name)
+
+# получаем файлы второй папки
+with os.scandir(dir2) as entries:
+    for entry in entries:
+        if entry.is_file():
+            files2.append(entry.name)
+
+# сравнение количества
+if len(files1) != len(files2):
+    print("Количество файлов разное")
+
+else:
+    same = True
+
+    # сравнение файлов
+    for name in files1:
+
+        # есть ли файл во второй папке
+        if name not in files2:
+            print(name, "нет во второй папке")
+            same = False
+            continue
+
+        path1 = os.path.join(dir1, name)
+        path2 = os.path.join(dir2, name)
+
+        # сравнение размера
+        size1 = os.stat(path1).st_size
+        size2 = os.stat(path2).st_size
+
+        if size1 != size2:
+            print(name, "имеет разный размер")
+            same = False
+            continue
+
+        # сравнение содержимого
+        with open(path1, "r") as f1:
+            text1 = f1.read()
+
+        with open(path2, "r") as f2:
+            text2 = f2.read()
+
+        if text1 != text2:
+            print(name, "имеет разное содержимое")
+            same = False
+
+    if same:
+        print("Файлы одинаковые")
