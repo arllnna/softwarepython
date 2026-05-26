@@ -1,0 +1,20 @@
+import os
+
+base = input("Введите путь: ")
+
+def listAll(path):
+    # выводим текущую папку
+    print(path)
+
+    # перебор содержимого папки
+    with os.scandir(path) as entries:
+        for entry in entries:
+
+            # если это директория
+            if entry.is_dir():
+
+                # рекурсивный вызов
+                listAll(entry.path)
+
+# запуск
+listAll(base)
